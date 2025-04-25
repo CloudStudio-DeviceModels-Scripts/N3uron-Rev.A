@@ -3,7 +3,6 @@
 */
 function parseUplink(device, payload)
 {
-  
     function ExtractTagData(tagValuesObject){
         v = null;
         q = null;
@@ -17,21 +16,26 @@ function parseUplink(device, payload)
 
     var N3uronData = payload.asJsonObject();
 	
-    env.log(N3uronData);
- 
+    //env.log(N3uronData);
+
    //Recorremos cada "tag" del array del json y procesamos lo que nos interesan
    for (let tag in N3uronData) {
   
     switch (tag){
         case "/BLK01/CAB01/INV01/ENERGY_TODAY_VAL":
+            env.log("processing tag:", tag);
             //Obtenemos el array con lecturas de este tag
             var tagvalues = N3uronData[tag];
             //Recorremos las lecturas y leemos los valores v, q y ts
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
-                var etv1 = device.endpoints.byAddress("1");
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
+                var etv1 = device.endpoints.byAddress("01");
                 etv1.updateGenericSensorStatus(ValueData.v, ValueData.ts);
+                env.log(ValueData.v, ValueData.ts);
             });
             break;
         case "/BLK01/CAB01/INV02/ENERGY_TODAY_VAL":
@@ -41,7 +45,10 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
-                var etv2 = device.endpoints.byAddress("2");
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
+                var etv2 = device.endpoints.byAddress("02");
                 etv2.updateGenericSensorStatus(ValueData.v, ValueData.ts);
             });
             break;
@@ -52,7 +59,10 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
-                var etv3 = device.endpoints.byAddress("3");
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
+                var etv3 = device.endpoints.byAddress("03");
                 etv3.updateGenericSensorStatus(ValueData.v, ValueData.ts);
             });
             break;
@@ -63,7 +73,10 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
-                var etv4 = device.endpoints.byAddress("4");
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
+                var etv4 = device.endpoints.byAddress("04");
                 etv4.updateGenericSensorStatus(ValueData.v, ValueData.ts);
             });
             break;
@@ -74,7 +87,10 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
-                var etv5 = device.endpoints.byAddress("5");
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
+                var etv5 = device.endpoints.byAddress("05");
                 etv5.updateGenericSensorStatus(ValueData.v, ValueData.ts);
             });
             break;
@@ -85,7 +101,10 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
-                var etv6 = device.endpoints.byAddress("6");
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
+                var etv6 = device.endpoints.byAddress("06");
                 etv6.updateGenericSensorStatus(ValueData.v, ValueData.ts);
             });
             break;
@@ -96,7 +115,10 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
-                var etv7 = device.endpoints.byAddress("7");
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
+                var etv7 = device.endpoints.byAddress("07");
                 etv7.updateGenericSensorStatus(ValueData.v, ValueData.ts);
             });
             break;   
@@ -107,7 +129,10 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
-               var etv8 = device.endpoints.byAddress("8");
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
+                var etv8 = device.endpoints.byAddress("08");
                 etv8.updateGenericSensorStatus(ValueData.v, ValueData.ts);
             });
             break;
@@ -118,6 +143,9 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
                 var irr = device.endpoints.byAddress("18");
                 irr.updateGenericSensorStatus(ValueData.v, ValueData.ts);
             });
@@ -129,6 +157,9 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
                 var Volt = device.endpoints.byType(endpointType.voltageSensor);
                 Volt.updateVoltageSensorStatus(ValueData.v, ValueData.ts);
             });
@@ -140,6 +171,9 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
                 var curr = device.endpoints.byAddress("10");
                 curr.updateCurrentSensorStatus(ValueData.v, ValueData.ts);
             });
@@ -151,6 +185,9 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
                 var ap = device.endpoints.byAddress("11");
                 ap.updateActivePowerSensorStatus(ValueData.v, ValueData.ts);
             });
@@ -162,6 +199,9 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
                 var ap = device.endpoints.byAddress("12");
                 ap.updateApparentPowerSensorStatus(ValueData.v, ValueData.ts);
             });
@@ -173,6 +213,9 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
                 var ap = device.endpoints.byAddress("13");
                 ap.updateReactivePowerSensorStatus(ValueData.v, ValueData.ts);
             });
@@ -184,7 +227,10 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
-               var aph = device.endpoints.byAddress("14");
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
+                var aph = device.endpoints.byAddress("14");
                 aph.updateGenericSensorStatus(ValueData.v, ValueData.ts);
             });
             break;
@@ -195,6 +241,9 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
                 var eai = device.endpoints.byAddress("15");
                 eai.updateGenericSensorStatus(ValueData.v, ValueData.ts);
             });
@@ -206,6 +255,9 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
                 var aph = device.endpoints.byAddress("16");
                 aph.updateGenericSensorStatus(ValueData.v, ValueData.ts);
             });
@@ -217,6 +269,9 @@ function parseUplink(device, payload)
             tagvalues.forEach(valueElement => {
                 var ValueData = ExtractTagData(valueElement);
                 //Listo, actualizamos el endpoint
+                env.log("value v " + ValueData.v);
+                env.log("value q " + ValueData.q);
+                env.log("value ts " + ValueData.ts);
                 var frec = device.endpoints.byAddress("17");
                 frec.updateFrequencySensorStatus(ValueData.v, ValueData.ts);
             });
@@ -226,9 +281,6 @@ function parseUplink(device, payload)
             env.log("Unknown tag: " + tag)
             break;            
     }
-    
-    
-    
 }
 
 function buildDownlink(device, endpoint, command, payload) 
