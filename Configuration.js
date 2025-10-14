@@ -24,35 +24,35 @@ function getEndpoints(deviceAddress, endpoints)
   // temperature sensor, while the second one is a carbon dioxide sensor.
 
   var e1 = endpoints.addEndpoint("1", "/BLK01/CAB01/INV01/ENERGY_TODAY_VAL", endpointType.genericSensor);
-  e1.variableTypeId = 1031;
+  e1.variableTypeId = 1146;
   var e2 = endpoints.addEndpoint("2", "/BLK01/CAB01/INV02/ENERGY_TODAY_VAL", endpointType.genericSensor);
-  e2.variableTypeId = 1031;
+  e2.variableTypeId = 1146;
   var e3 = endpoints.addEndpoint("3", "/BLK01/CAB02/INV01/ENERGY_TODAY_VAL", endpointType.genericSensor);
-  e3.variableTypeId = 1031;
+  e3.variableTypeId = 1146;
   var e4 = endpoints.addEndpoint("4", "/BLK01/CAB02/INV02/ENERGY_TODAY_VAL", endpointType.genericSensor);
-  e4.variableTypeId = 1031;
+  e4.variableTypeId = 1146;
   var e5 = endpoints.addEndpoint("5", "/BLK01/CAB03/INV01/ENERGY_TODAY_VAL", endpointType.genericSensor);
-  e5.variableTypeId = 1031;
+  e5.variableTypeId = 1146;
   var e6 = endpoints.addEndpoint("6", "/BLK01/CAB03/INV02/ENERGY_TODAY_VAL", endpointType.genericSensor);
-  e6.variableTypeId = 1031;
+  e6.variableTypeId = 1146;
   var e7 = endpoints.addEndpoint("7", "/BLK01/CAB04/INV01/ENERGY_TODAY_VAL", endpointType.genericSensor);
-  e7.variableTypeId = 1031;
+  e7.variableTypeId = 1146;
   var e8 = endpoints.addEndpoint("8", "/BLK01/CAB04/INV02/ENERGY_TODAY_VAL", endpointType.genericSensor);
-  e8.variableTypeId = 1031;
+  e8.variableTypeId = 1146;
   endpoints.addEndpoint("9", "/SUBS01/MTR01/VOLTAGE", endpointType.voltageSensor);
   endpoints.addEndpoint("10", "/SUBS01/MTR01/CURRENT", endpointType.currentSensor);
   endpoints.addEndpoint("11", "/SUBS01/MTR01/POWER_ACTIVE", endpointType.activePowerSensor);
   endpoints.addEndpoint("12", "/SUBS01/MTR01/POWER_APPARENT", endpointType.apparentPowerSensor);
   endpoints.addEndpoint("13", "/SUBS01/MTR01/POWER_REACTIVE", endpointType.reactivePowerSensor);
   var e14 = endpoints.addEndpoint("14", "/SUBS01/MTR01/ANGLE_PHASE", endpointType.genericSensor);
-  e14.variableTypeId = 1032;
+  e14.variableTypeId = 1145;
   var e15 = endpoints.addEndpoint("15", "/SUBS01/MTR01/ENERGY_ACTIVE_IMPORTED", endpointType.genericSensor);
-  e15.variableTypeId = 1031;
+  e15.variableTypeId = 1146;
   var e16 = endpoints.addEndpoint("16", "/SUBS01/MTR01/POWER_FACTOR", endpointType.genericSensor);
-  e16.variableTypeId = 1033;
+  e16.variableTypeId = 1148;
   endpoints.addEndpoint("17", "/SUBS01/MTR01/FREQUENCY", endpointType.frequencyMeter);
   var e18 = endpoints.addEndpoint("18", "/BLK01/MET01/PYR01/IRR", endpointType.genericSensor);
-  e18.variableTypeId = 1034;
+  e18.variableTypeId = 1147;
 }
 
 function validateDeviceAddress(address, result)
